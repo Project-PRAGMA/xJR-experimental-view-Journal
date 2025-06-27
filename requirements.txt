@@ -1,0 +1,12 @@
+gmpy2
+gurobipy
+kiwisolver
+matplotlib
+networkx
+numpy
+pandas
+Pillow
+PuLP
+scipy
+seaborn
+tqdm

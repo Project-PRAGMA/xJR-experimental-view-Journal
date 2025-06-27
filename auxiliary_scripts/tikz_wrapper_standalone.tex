@@ -1,0 +1,46 @@
+\documentclass[tikz]{standalone}% 'crop' is the default for v1.0, before it
+\usetikzlibrary{arrows.meta}
+\begin{document}
+ \begin{tikzpicture}
+  \tikzstyle{every node}=[font=\Huge]
+  \pgfmathsetmacro{\blocShift}{5.6cm};
+  \pgfmathsetmacro{\ccShift}{4.12cm};
+
+  \pgfmathsetmacro{\blocYTopShift}{.3cm};
+  \pgfmathsetmacro{\blocYBottomShift}{.85cm};
+  \pgfmathsetmacro{\ccXLeftShift}{1.2cm};
+  \pgfmathsetmacro{\ccXRightShift}{.4cm};
+
+
+  \coordinate (nonJRPointer) at (-3, -.5);
+  \coordinate (JRPointer) at (1, 2);
+  \coordinate (phrPointer) at (3.5, 3.65);
+  \coordinate (PAVPointer) at (3.64, 3.68);
+
+
+  \node[inner sep=0] (plot) at (0,0) {\includegraphics{xic_heatmap.png}};
+  \node[anchor=center] (xlabel) at (plot.south) {satisfaction};
+  \node[anchor=center, rotate=90] (ylabel) at (plot.west) {coverage};
+  \coordinate[xshift=\blocShift, yshift=-\blocYTopShift] (BlocTop) at (plot.north);
+  \coordinate[xshift=\blocShift, yshift=\blocYBottomShift] (BlocBottom) at (plot.south);
+  \coordinate[yshift=\ccShift, xshift=\ccXLeftShift] (ccWest) at (plot.west);
+  \coordinate[yshift=\ccShift, xshift=-\ccXRightShift] (ccEast) at (plot.east);
+
+  \node (phrDesc) at (7.4, 2.5) {Phragm{\'{e}}n};
+  \node (JRDesc) at (-7, 3.5) {JR};
+  \node (nonJRDesc) at (-7,-3) {non-JR};
+  \node (PAVDesc) at (7, 3.5) {PAV};
+
+  \draw[-{Latex[length=4mm,width=5mm]}] (nonJRDesc) -- (nonJRPointer);
+  \draw[-{Latex[length=4mm,width=5mm]}] (JRDesc) -- (JRPointer);
+  \draw[-{Latex[length=4mm,width=5mm]}] (PAVDesc) -- (PAVPointer);
+  \draw[-{Latex[length=4mm,width=5mm]}] (phrDesc) -- (phrPointer);
+
+  
+  \draw (BlocTop) -- (BlocBottom);
+  \draw (ccWest) -- (ccEast);
+  \node[anchor=west, inner sep=1] (ccDesc) at (ccEast) {CC};
+  \node[anchor=south, inner sep=1] (BlocDesc) at (BlocTop) {Approval};
+
+ \end{tikzpicture}
+\end{document}
