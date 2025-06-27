@@ -104,7 +104,7 @@ To create a PDF combining all hitmaps (without full descriptions):
 
 ---
 
-### 4. Heatmaps
+### Heatmaps
 
 To plot heatmaps for Pabulib and synthetic cultures.
 
@@ -131,7 +131,7 @@ To create a PDF with all Pabulib heatmaps (descriptions missing):
 
 ## Recomputing Experiments
 
-> **Warning**: Recomputing experiments is computationally intensive and may
+> **WARNING**: Recomputing experiments is computationally intensive and may
 > take days or even weeks. Some tasks were originally run in parallel on
 > multiple threads.
 
